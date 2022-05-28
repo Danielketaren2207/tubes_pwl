@@ -188,7 +188,7 @@
                                                     <td>{{$item->title}}</td>
                                                     <td> {{$item->caption}} </td>
                                                     <td>
-                                                        <img src="{{ url('storage/image/' . $item->image) }}" class="rounded" style="width: 200px">
+                                                        <img src="{{ url('storage/berita/' . $item->image) }}" class="rounded" style="width: 200px">
                                                     </td>
                                                     <td> {{ date('d-m-Y' , strtotime($item->created_at)) }}</td>
                                                     <td><a href="{{ url('admineditberita', $item->id) }}"> <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button> </a>

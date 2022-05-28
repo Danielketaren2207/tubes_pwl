@@ -41,7 +41,7 @@
         @foreach ($databerita as $key=>$item)
 
         <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
-          <img src="{{ url('storage/image/' . $item->image) }}" class="d-block mx-auto" style="width:80%; height:50%">
+          <img src="{{ url('storage/berita/' . $item->image) }}" class="d-block mx-auto" style="width:80%; height:50%">
           <div class="carousel-caption">
             <h3> {{$item->title}} </h3>
             <p> {{$item->caption}} </p>

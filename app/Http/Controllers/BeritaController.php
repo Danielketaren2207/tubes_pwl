@@ -43,7 +43,7 @@ class BeritaController extends Controller
 
             if(request()->hasFile(key: 'image')){
                 $image = request()->file(key: 'image')->getClientOriginalName();
-                request()->file(key: 'image')->storeAs('/image', $image, options:'');
+                request()->file(key: 'image')->storeAs('/berita', $image, options:'');
                 $berita->update(['image'=>$image]);
             }
             return redirect('adminberita')->with('success', 'Data Berhasil Ditambahkan!');
@@ -61,7 +61,7 @@ class BeritaController extends Controller
         $editberita->update($request->all());
         if(request()->hasFile(key: 'image')){
             $image = request()->file(key: 'image')->getClientOriginalName();
-            request()->file(key: 'image')->storeAs('/image', $image, options:'');
+            request()->file(key: 'image')->storeAs('/berita', $image, options:'');
             $editberita->update(['image'=>$image]);
         }
         return redirect('adminberita')->with ('success','Data Berhasil Diupdate!');

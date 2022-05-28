@@ -182,7 +182,7 @@
 
                                           <div class="mb-3">
                                             <label for="image" class="form-label" >Image</label> <br>
-                                            <img src=" {{ url('storage/image/' . $editberita->image) }}" width="300px">
+                                            <img src=" {{ url('storage/berita/' . $editberita->image) }}" width="300px">
                                             <input type="file" class="form-control mt-3" id="image" name="image" value=" {{ url('storage/image/' . $editberita->image) }} ">
                                           </div>                                              
                                         <button type="submit" class="btn btn-primary">Submit</button>
