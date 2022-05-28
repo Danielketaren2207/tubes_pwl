@@ -68,7 +68,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         
                         <a class="collapse-item" href="admintambahuangpangkal">Uang Pangkal</a>
-                        <a class="collapse-item" href="admintambahuangspp">SPP Bulanan</a>
+                        <a class="collapse-item" href="admintambahspp">SPP Bulanan</a>
                     </div>
                 </div>
             </li>
