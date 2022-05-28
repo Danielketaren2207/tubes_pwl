@@ -180,6 +180,10 @@
                         </div>
                     </form>
 
+                   
+                        
+                    
+
                                     <table class="table">
                                         <thead>
                                           <tr>
@@ -196,22 +200,24 @@
                                           </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($datasiswa as $item)
                                           <tr>
-                                            <th scope="row">1</th>
-                                            <td>332334332</td>
-                                            <td>Daniel</td>
-                                            <td>Laki-Laki</td>
-                                            <td> Kristen </td>
-                                            <td>Bapak Daniel</td>
-                                            <td>Mama Daniel</td>
+                                            <th scope="row"> {{$loop->iteration}} </th>
+                                            <td> {{$item->id}} </td>
+                                            <td> {{$item->name}} </td>
+                                            <td> {{$item->jenis_kelamin}} </td>
+                                            <td> {{{$item->agama}}} </td>
+                                            <td> {{$item->nama_ayah}} </td>
+                                            <td> {{$item->nama_ibu}} </td>
                                             <td> <a href="admineditberita"> <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button> </a>
                                                 <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                                                 <a href="adminprofilesiswa"> <button type="button" class="btn btn-dark"><i class="fa-solid fa-eye"></i></button> </a>
-
+                                                @endforeach
                                             </td>
                                           </tr>
                                         </tbody>
                                       </table>
+                                      
 
                                       <br>
            

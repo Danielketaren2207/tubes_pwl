@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DataSiswaController;
 
 use Illuminate\Support\Facades\Auth;
 /*
@@ -51,9 +52,9 @@ use Illuminate\Support\Facades\Auth;
 //     return view('admin_editberita');
 // });
 
-Route::get('/admindatasiswa', function () {
-    return view('admin_datasiswa');
-});
+// Route::get('/admindatasiswa', function () {
+//     return view('admin_datasiswa');
+// });
 
 // Route::get('/adminprofilesiswa', function () {
 //     return view('admin_profilesiswa');
@@ -95,4 +96,5 @@ Route::post('/admin_updateberita_simpan/{id}', [App\Http\Controllers\BeritaContr
 Route::get('/admin_hapusberita/{id}', [App\Http\Controllers\BeritaController::class, 'destroy'])->name('admin_hapusberita');
 
 
+Route::get('/admindatasiswa', [App\Http\Controllers\DataSiswaController::class, 'index'])->name('admin_datasiswa');
 
