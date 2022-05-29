@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 class DataSiswaController extends Controller
 {
@@ -25,7 +26,7 @@ class DataSiswaController extends Controller
      */
     public function create()
     {
-        //
+        return view ('admin_tambahdatasiswa');
     }
 
     /**
@@ -36,7 +37,33 @@ class DataSiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tambahdatasiswa = User::create(
+            [
+                'title' => $request->title,
+                'caption' => $request->caption,
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request['password']),
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'agama' => $request->agama,
+                'tempat_lahir' => $request->tempat_lahir,
+                'tanggal_lahir' => $request->tanggal_lahir,
+                'kota_asal' => $request->kota_asal,
+                'alamat' => $request->alamat,
+                'nama_ayah' => $request->nama_ayah,
+                'nama_ibu' => $request->nama_ibu,
+                'pekerjaan_ayah' => $request->pekerjaan_ayah,
+                'pekerjaan_ibu' => $request->pekerjaan_ibu,
+                'no_hp_ibu' => $request->no_hp_ibu,
+                'no_hp_ayah' => $request->no_hp_ayah,
+            ]);
+
+            if(request()->hasFile(key: 'image')){
+                $image = request()->file(key: 'image')->getClientOriginalName();
+                request()->file(key: 'image')->storeAs('/image', $image, options:'');
+                $tambahdatasiswa->update(['image'=>$image]);
+            }
+            return redirect('admindatasiswa')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -47,7 +74,8 @@ class DataSiswaController extends Controller
      */
     public function show($id)
     {
-        //
+        $viewdatasiswa = User:: findorfail($id);
+        return view ('admin_viewsiswa' , compact('viewdatasiswa') );
     }
 
     /**
@@ -58,7 +86,8 @@ class DataSiswaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $editdatasiswa = User:: findorfail($id);
+        return view ('admin_editsiswa' , compact('editdatasiswa') );
     }
 
     /**
@@ -70,7 +99,14 @@ class DataSiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $editdatasiswa = User:: findorfail($id);
+        $editdatasiswa->update($request->all());
+        if(request()->hasFile(key: 'image')){
+            $image = request()->file(key: 'image')->getClientOriginalName();
+            request()->file(key: 'image')->storeAs('/image', $image, options:'');
+            $editdatasiswa->update(['image'=>$image]);
+        }
+        return redirect('admindatasiswa')->with ('success','Data Berhasil Diupdate!');
     }
 
     /**
@@ -81,6 +117,8 @@ class DataSiswaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tambahdatasiswa = User:: findorfail($id);
+        $tambahdatasiswa->delete();
+        return back();
     }
 }
