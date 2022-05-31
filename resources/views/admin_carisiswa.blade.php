@@ -58,18 +58,17 @@
                     <span>Data Siswa</span></a>
             </li>
 
-            
             <li class="nav-item active">
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-                    aria-controls="collapseTwo">
-                    <i class="fa-solid fa-clock-rotate-left"></i>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    <i class="fa-solid fa-money-bill-wave"></i>
                     <span>Pembayaran</span>
                 </a>
-                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
-                    data-parent="#accordionSidebar">
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
+                        
                         <a class="collapse-item" href="admintambahuangpangkal">Uang Pangkal</a>
-                        <a class="collapse-item active" href="admintambahspp">SPP Bulanan</a>
+                        <a class="collapse-item active" href="admincarisiswa">SPP Bulanan</a>
                     </div>
                 </div>
             </li>
@@ -134,10 +133,10 @@
                             <!-- Dropdown - Messages -->
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                                 aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
+                                <form class="form-inline mr-auto w-100 navbar-search" action="/admincarisiswa/search">
                                     <div class="input-group">
                                         <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
+                                            placeholder="Search for..." aria-label="Search" name="search"
                                             aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="button">
@@ -149,13 +148,13 @@
                             </div>
                         </li>
 
+
                      
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
                         @include('layouts.user_information')
-
                     </ul>
 
                 </nav>
@@ -164,86 +163,62 @@
                 <!-- Begin Page Content -->
                 <div id="page-content-wrapper">
                     <div class="container-fluid mt-4">
-                        <h2 class="subjudul"> Tambah SPP </h2>
+                        <h2 class="subjudul ms-2 mb-3" >Cari Siswa yang Ingin Membayar SPP</h2>
         
                             <div class="container mb-3">
                                 <div class="card bg-white shadow p-4 mb-4">
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <img src="img/IMG-20200827-WA0001.jpg" class="rounded" style="width: 200px;" alt="">
+
+                                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-1 my-2 my-md-0 mw-100 navbar-search" action="/admincarisiswa" method="get">
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control bg-light border-0 small" placeholder="Cari Data Siswa"
+                                                aria-label="Search" aria-describedby="basic-addon2" name="search">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="submit">
+                                                    <i class="fas fa-search fa-sm"></i>
+                                                </button>
+                                            </div>
                                         </div>
-                                        <div class="col-8">
-                                            <h2 style="font-weight: 800">Daniel Andrew Ketaren</h2>
-                                            <table style="border: 1px soli transparent;">
-                                                <tbody>
-                                                    <tr>
-                                                        <td style="width: 150px;"><b>NISN</b></td>
-                                                        <td>2323123213213</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Jenis Kelamin</b></td>
-                                                        <td>Laki-Laki</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Agama</b></td>
-                                                        <td>Kristen</td>
-                                                    </tr>
+                                    <div id="page-content-wrapper">
 
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                <th scope="col">No</th>
+                                                <th scope="col">NIM</th>
+                                                <th  scope="col">Gambar Siswa</th>
+                                                <th scope="col">Nama</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Action</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($datasiswa as $item)
                                                     <tr>
-                                                        <td><b>Tempat Lahir</b></td>
-                                                        <td>Jakarta</td>
+                                                        <th scope="row"> {{$loop->iteration}} </th>
+                                                        <td>{{$item->id}}</td>
+                                                        <td>
+                                                            <img src="{{ url('storage/app/image/' .$item->image) }}" class="rounded" style="width: 200px">
+                                                        </td>
+                                                        <td> {{$item->name}}</td>
+                                                        <td> {{$item->email}}</td>
+                                                        <td><a href="{{ route('admin_spp' , $item->id) }}"> <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Perbarui Data</button> </a>
+
+                                                                
+                                                
+                                                        </td>
+
                                                     </tr>
-
-                                                    <tr>
-                                                        <td><b>Tanggal Lahir</b></td>
-                                                        <td>2000-11-1</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td><b>Alamat</b></td>
-                                                        <td>jalan nilai A</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td><b>Kota Asal</b></td>
-                                                        <td>Medan</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td><b>Nama Ayah</b></td>
-                                                        <td>bapak</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td><b>Pekerjaan Ayah</b></td>
-                                                        <td>Pengusaha</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td><b>No Hp Ayah</b></td>
-                                                        <td>089827277277</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td><b>Nama Ibu</b></td>
-                                                        <td>Ibu</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td><b>Pekerjaan Ibu</b></td>
-                                                        <td>Ibu Rumah Tangga</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td><b>No Hp Ibu</b></td>
-                                                        <td>08957272771</td>
-                                                    </tr>
-
-
-                                                </tbody>
+                                                @endforeach
+                                            </tbody>
                                             </table>
-                                        </div>
-                            </div>
+                                            <br>
+                                        </form>
+
+                                {{-- PAGINATION --}}
+
+
+
                         </div>
                     </div>
                 </div>
@@ -253,35 +228,12 @@
 
 
             
-                                    <div class="container mb-3 px-5">
-                                        <div class=" card bg-white shadow p-4 mb-4">                
-                                            <h6>Bulan</h6>
-                                            
-                                            <select class="form-select form-control" aria-label="Default select example">
-                                                <option selected>Silahkan Pilih Opsi</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
-                                              </select>
-                                              
-                                            <h6 class="mt-4">Nominal</h6>
-                                            <input type="text" class="form-control mb-3" placeholder="Masukkan nominal">
-                
-                                            <button type="button" class="btn btn-success">Konfirmasi</button>
-                                        </div>
-                                    </div>
                     
-                    
-            
+                </div> 
+             
+        </div> 
+                </div>
+            </div>
     </div>
 
 
@@ -323,7 +275,8 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
