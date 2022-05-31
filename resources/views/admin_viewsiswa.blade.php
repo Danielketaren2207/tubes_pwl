@@ -11,14 +11,12 @@
 
     <title>SB Admin 2 - Dashboard</title>
 
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+   <!-- Custom fonts for this template-->
+   <link href=" {{asset(' vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css" >
+   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+   <!-- Custom styles for this template-->
+   <link rel="stylesheet" href="{{asset('css/sb-admin-2.min.css')}}" >
 
 </head>
 
@@ -68,7 +66,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         
                         <a class="collapse-item" href="admintambahuangpangkal">Uang Pangkal</a>
-                        <a class="collapse-item" href="admintambahspp">SPP Bulanan</a>
+                        <a class="collapse-item" href="admintambahuangspp">SPP Bulanan</a>
                     </div>
                 </div>
             </li>
@@ -162,88 +160,73 @@
                 <!-- Begin Page Content -->
                 <div id="page-content-wrapper">
                     <div class="container-fluid mt-4">
-                       <p> <h2 class="subjudul ms-2 mb-3" >Data Siswa</h2> <a href=" {{url('admintambahdatasiswa')}} "> <button class="btn btn-success"> Tambah Siswa </button></a> </p>
+                        <p class="subjudul"> Profile Siswa <p>
         
-                            <div class="container mb-3"> 
+                            <div class="container mb-3">
                                 <div class="card bg-white shadow p-4 mb-4">
-
-                                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-1 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Cari Data Siswa"
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
+                                    <div class="row">
+                                        <div class="col-3">
+                                            {{-- <img src="img/IMG-20200827-WA0001.jpg" class="rounded" style="width: 200px;" alt=""> --}}
+                                            <img src="{{ url('storage/image/' . $viewdatasiswa->image)}}" class="rounded" style="width: 200px"> 
+                                       </div>
+                                        <div class="col-8">
+                                            <h2 style="font-weight: 800">{{$viewdatasiswa->name}}</h2>
+                                            <table style="border: 1px soli transparent;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="width: 200px;"><b>NISN</b></td>
+                                                        <td> {{$viewdatasiswa->id}} </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Jenis Kelamin</b></td>
+                                                        <td> {{$viewdatasiswa->jenis_kelamin}} </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Agama</b></td>
+                                                        <td>{{$viewdatasiswa->agama}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Tempat, Tanggal Lahir</b></td>
+                                                        <td>{{$viewdatasiswa->tempat_lahir}}, {{ date('d-m-Y' , strtotime($viewdatasiswa->tanggal_lahir)) }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Alamat</b></td>
+                                                        <td>{{$viewdatasiswa->alamat}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Kota Tempat Tinggal</b></td>
+                                                        <td>{{$viewdatasiswa->kota_asal}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Nama Ayah</b></td>
+                                                        <td>{{$viewdatasiswa->nama_ayah}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Pekerjaan Ayah</b></td>
+                                                        <td>{{$viewdatasiswa->pekerjaan_ayah}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>No HP Ayah</b></td>
+                                                        <td>{{$viewdatasiswa->no_hp_ayah}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Nama Ibu</b></td>
+                                                        <td>{{$viewdatasiswa->nama_ibu}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Pekerjaan Ibu</b></td>
+                                                        <td>{{$viewdatasiswa->pekerjaan_ibu}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>No HP Ibu</b></td>
+                                                        <td>{{$viewdatasiswa->no_hp_ibu}}</td>
+                                                    </tr>
+                                                   
+                                                </tbody>
+                                            </table>
+                                        </div>
                             </div>
-                        </div>
-                    </form>
-
-                   
-                        
-                    
-
-                                    <table class="table">
-                                        <thead>
-                                          <tr>
-                                            <th scope="col">No</th>
-                                            <th scope="col">NISN</th>
-                                            <th  scope="col">Nama Lengkap</th>
-                                            <th scope="col">Jenis Kelamin</th>
-                                            <th scope="col">Agama</th>
-                                            <th scope="col">Nama Ayah</th>
-                                            <th scope="col">Nama Ibu</th>
-                                            <th scope="col">Action</th>
-                                            
-
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($datasiswa as $item)
-                                          <tr>
-                                            <th scope="row"> {{$loop->iteration}} </th>
-                                            <td> {{$item->id}} </td>
-                                            <td> {{$item->name}} </td>
-                                            <td> {{$item->jenis_kelamin}} </td>
-                                            <td> {{{$item->agama}}} </td>
-                                            <td> {{$item->nama_ayah}} </td>
-                                            <td> {{$item->nama_ibu}} </td>
-                                            <td> <a href="{{ url('admineditsiswa', $item->id) }}"> <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button> </a>
-                                                <button type="button" class="btn btn-danger delete" data-id="{{$item->id}}"> <i class="fa-solid fa-trash-can"></i></button>
-                                                <a href="{{ url('adminviewsiswa', $item->id) }}"><button type="button" class="btn btn-dark"><i class="fa-solid fa-eye"></i></button> </a>
-                                                @endforeach
-                                            </td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                      
-
-                                      <br>
-           
-                                      {{-- PAGINATION --}}
-                                      
-                                      <nav aria-label="Page navigation example">
-                                        <ul class="pagination justify-content-center">
-                                          <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Previous">
-                                              <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                          </li>
-                                          <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                          <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Next">
-                                              <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                          </li>
-                                        </ul>
-                                      </nav> 
-
-                        </div>
-                    </div>
-                </div>
+        
             </div>
 
             </div>
@@ -326,7 +309,7 @@
         var siswaid = $(this).attr('data-id');
         swal({
                 title: "Apakah Anda Yakin?",
-                text: "Kamu Akan Menghapus Data Siswa Ini! ",
+                text: "Kamu Akan Menghapus Berita Ini! ",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
@@ -334,7 +317,7 @@
                 .then((willDelete) => {
                 if (willDelete) {
                     window.location = "/admin_hapussiswa/"+siswaid+""
-                    swal("Data Siswa Berhasil Dihapus!", {
+                    swal("Berita Berhasil Dihapus!", {
                     icon: "success",
                     });
                 } 

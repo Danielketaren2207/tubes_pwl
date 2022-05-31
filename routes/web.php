@@ -97,4 +97,10 @@ Route::get('/admin_hapusberita/{id}', [App\Http\Controllers\BeritaController::cl
 
 
 Route::get('/admindatasiswa', [App\Http\Controllers\DataSiswaController::class, 'index'])->name('admin_datasiswa');
+Route::get('/admintambahdatasiswa', [App\Http\Controllers\DataSiswaController::class, 'create'])->name('admin_tambahdatasiswa');
+Route::post('/admin_tambahdatasiswa_simpan', [App\Http\Controllers\DataSiswaController::class, 'store'])->name('admin_tambahdatasiswa_simpan');
+Route::get('/admin_hapussiswa/{id}', [App\Http\Controllers\DataSiswaController::class, 'destroy'])->name('admin_hapussiswa');
+Route::get('/admineditsiswa/{id}', [App\Http\Controllers\DataSiswaController::class, 'edit'])->name('admin_editsiswa');
+Route::post('/admin_editsiswa_simpan/{id}', [App\Http\Controllers\DataSiswaController::class, 'update'])->name('admin_editsiswa_simpan');
+Route::get('/adminviewsiswa/{id}', [App\Http\Controllers\DataSiswaController::class, 'show'])->name('admin_viewsiswa');
 
