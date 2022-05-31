@@ -63,7 +63,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item active" href="siswauangpangkal">Uang Pangkal</a>
-                        <a class="collapse-item" href="siswauangspp">Uang SPP</a>
+                        <a class="collapse-item" href="admincarisiswa">Uang SPP</a>
                     </div>
                 </div>
             </li>

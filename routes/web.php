@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DataSiswaController;
+use App\Http\Controllers\SPPController;
+
 
 use Illuminate\Support\Facades\Auth;
 /*
@@ -96,6 +98,7 @@ Route::post('/admin_updateberita_simpan/{id}', [App\Http\Controllers\BeritaContr
 Route::get('/admin_hapusberita/{id}', [App\Http\Controllers\BeritaController::class, 'destroy'])->name('admin_hapusberita');
 
 
+Route::get('/admincarisiswa', [App\Http\Controllers\DataSiswaController::class, 'search'])-> name('search_datasiswa');
 Route::get('/admindatasiswa', [App\Http\Controllers\DataSiswaController::class, 'index'])->name('admin_datasiswa');
 Route::get('/admintambahdatasiswa', [App\Http\Controllers\DataSiswaController::class, 'create'])->name('admin_tambahdatasiswa');
 Route::post('/admin_tambahdatasiswa_simpan', [App\Http\Controllers\DataSiswaController::class, 'store'])->name('admin_tambahdatasiswa_simpan');
@@ -104,3 +107,9 @@ Route::get('/admineditsiswa/{id}', [App\Http\Controllers\DataSiswaController::cl
 Route::post('/admin_editsiswa_simpan/{id}', [App\Http\Controllers\DataSiswaController::class, 'update'])->name('admin_editsiswa_simpan');
 Route::get('/adminviewsiswa/{id}', [App\Http\Controllers\DataSiswaController::class, 'show'])->name('admin_viewsiswa');
 
+
+Route::get('/admindataspp/{id}', [App\Http\Controllers\SPPController::class, 'index'])->name('admin_spp');
+Route::get('/admindataspp/delete/{id}', [App\Http\Controllers\SPPController::class, 'destroy'])-> name('spp_delete');
+Route::get('/admindataspp/edit/{id}', [App\Http\Controllers\SPPController::class, 'edit'])-> name('spp_edit');
+Route::post('/admindataspp/update/{id}', [App\Http\Controllers\SPPController::class, 'update'])-> name('spp_update');
+Route::post('/admindataspp/create', [App\Http\Controllers\SPPController::class, 'store'])-> name('spp_create');
