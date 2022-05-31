@@ -12,13 +12,13 @@
     <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
 
 </head>
 
@@ -33,21 +33,21 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 
-                <div class="sidebar-brand-text mx-3">Selamat Datang Admin</div>
+                <div class="sidebar-brand-text mx-3">Selamat Datang Admin </div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="admindashboard">
+            <li class="nav-item">
+                <a class="nav-link" href="admin">
                     <i class="fa-solid fa-house"></i>
                     <span>Home</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href= "{{ route('admin_berita') }}" >
+                <a class="nav-link" href="adminberita">
                     <i class="fa-solid fa-newspaper"></i>
                     <span>Berita</span></a>
             </li>
@@ -68,13 +68,12 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         
                         <a class="collapse-item" href="admintambahuangpangkal">Uang Pangkal</a>
-                        <a class="collapse-item" href="admincarisiswa">SPP Bulanan</a>
+                        <a class="collapse-item  active" href="admincarisiswa">SPP Bulanan</a>
                     </div>
                 </div>
             </li>
            
             <!-- Nav Item - Pages Collapse Menu -->
-            
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -163,34 +162,48 @@
                 <!-- Begin Page Content -->
                 <div id="page-content-wrapper">
                     <div class="container-fluid mt-4">
-                        <p class="subjudul"> Profile Admin <p>
+                        <h2 class="subjudul ms-2 mb-3" > Edit SPP </h2>
         
                             <div class="container mb-3">
                                 <div class="card bg-white shadow p-4 mb-4">
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <img src="img/IMG-20200827-WA0001.jpg" class="rounded" style="width: 200px;" alt="">
+
+                                    @if(session('message'))
+                                    <div class="alert alert-info">
+                                      {{session('message')}}
+                                    </div>
+                                    @elseif(session('warning'))
+                                    <div class="alert alert-warning">
+                                        {{session('warning')}}
+                                    </div>
+                                    @elseif(session('danger'))
+                                    <div class="alert alert-danger">
+                                        {{session('danger')}}
+                                    </div>
+                                    @endif
+                                    @foreach ($spp as $s)
+                                    <form action="{{ route('spp_update', $s->id) }}" method="POST">
+                                        @csrf
+                                            
+                                        <input type="hidden" name="id_siswa" value="{{$s->id_siswa}}" >
+
+                                        <div class="mb-3">
+                                            <label for="bulan" class="form-label">Bulan</label>
+                                            <input type="text" class="form-control" value="{{$s->nama_bulan}}" name="nama_bulan" readonly>
                                         </div>
-                                        <div class="col-8">
-                                            <h2 style="font-weight: 800">Daniel Andrew Ketaren</h2>
-                                            <table style="border: 1px soli transparent;">
-                                                <tbody>
-                                                    <tr>
-                                                        <td style="width: 150px;"><b>NIP</b></td>
-                                                        <td>2323123213213</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Jabatan</b></td>
-                                                        <td>Tata Usaha</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Tahun Masuk</b></td>
-                                                        <td>2009</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                            </div>
+
+                                        <div class="mb-3">
+                                            <label for="description" class="form-label">Nominal</label>
+                                            <input type="text" class="form-control" value="{{$s->nominal}}" name="nominal" required placeholder="Masukkan nominal">
+                                          </div>
+                                          
+                                        <button type="submit" class="btn btn-success">Save</button>
+                                    </form>
+                                    @endforeach
+                                      <br>
+            {{-- PAGINATION --}}
+                                      
+                                       
+
                         </div>
                     </div>
                 </div>
@@ -199,26 +212,10 @@
             </div>
 
 
-            <div class="row">
-                <div class="col">
-                    <div class="container-fluid mt-2">    
-                            <div class="container mb-3">
-                                <div class="card bg-white shadow p-4 mb-4">
-                                    <h1 style="font-weight: 700"> 13 </h1>
-                                    <h3>Menunggu Konfirmasi</h3>
-                        </div>
-                </div>
-            </div>
+            
                     
                 </div> 
-                <div class="col">
-                    <div class="container-fluid mt-2">    
-                        <div class="container mb-3">
-                            <div class="card bg-white shadow p-4 mb-4">
-                                <h1 style="font-weight: 700"> {{$users}} </h1>
-                                <h3> Siswa Yang Terdaftar </h3>
-                    </div>
-            </div>
+             
         </div> 
                 </div>
             </div>
@@ -262,21 +259,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="{{asset('js/demo/chart-area-demo.js')}}"></script>
+    <script src="{{asset('js/demo/chart-pie-demo.js')}}"></script>
 
     <script src="https://kit.fontawesome.com/866812587f.js" crossorigin="anonymous"></script>
 

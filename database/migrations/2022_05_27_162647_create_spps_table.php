@@ -16,7 +16,10 @@ return new class extends Migration
         Schema::create('spps', function (Blueprint $table) {
             $table->id('id_spp');
             $table->string('bulan_pembayaran')->nullable();
-            
+            $table->foreign('id_siswa')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('id_admin');
+            $table->foreign('id_bulan')->references('id_bulan')->on('month')->onDelete('cascade');
+            $table->integer('nominal');
             $table->timestamps();
         });
     }

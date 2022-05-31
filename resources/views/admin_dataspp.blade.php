@@ -12,13 +12,13 @@
     <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
 
 </head>
 
@@ -47,17 +47,18 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="adminberita">
+                <a class="nav-link" href="{{route('admin_berita')}}">
                     <i class="fa-solid fa-newspaper"></i>
                     <span>Berita</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="admindatasiswa">
+                <a class="nav-link" href="{{route('admin_datasiswa')}}">
                     <i class="fa-solid fa-address-card"></i>
                     <span>Data Siswa</span></a>
             </li>
 
+            
             <li class="nav-item active">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                     aria-controls="collapseTwo">
@@ -67,8 +68,8 @@
                 <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item active" href="admintambahuangpangkal">Uang Pangkal</a>
-                        <a class="collapse-item" href="admincarisiswa">SPP Bulanan</a>
+                        <a class="collapse-item" href="admintambahuangpangkal">Uang Pangkal</a>
+                        <a class="collapse-item active" href="{{route('search_datasiswa')}}">SPP Bulanan</a>
                     </div>
                 </div>
             </li>
@@ -163,116 +164,183 @@
                 <!-- Begin Page Content -->
                 <div id="page-content-wrapper">
                     <div class="container-fluid mt-4">
-                        <h2 class="subjudul"> Tambah Uang Pangkal </h2>
-        
-                            <div class="container mb-3">
-                                <div class="card bg-white shadow p-4 mb-4">
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <img src="img/IMG-20200827-WA0001.jpg" class="rounded" style="width: 200px;" alt="">
-                                        </div>
-                                        <div class="col-8">
-                                            <h2 style="font-weight: 800">Daniel Andrew Ketaren</h2>
+                        <h2 class="subjudul"> Data SPP </h2>
+                        @if(session('message'))
+                        <div class="alert alert-info">
+                          {{session('message')}}
+                        </div>
+                        @elseif(session('warning'))
+                        <div class="alert alert-warning">
+                            {{session('warning')}}
+                        </div>
+                        @elseif(session('danger'))
+                        <div class="alert alert-danger">
+                            {{session('danger')}}
+                        </div>
+                        @endif
+                        @foreach ($data as $d)
+                            
+                        <div class="container mb-3">
+                            <div class="card bg-white shadow p-4 mb-4">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <img src="{{asset('img/IMG-20200827-WA0001.jpg')}}" class="rounded" style="width: 200px;" alt="">
+                                    </div>
+                                    <div class="col-8">
+                                        <h2 style="font-weight: 800">{{$d->name}}</h2>
                                             <table style="border: 1px soli transparent;">
                                                 <tbody>
                                                     <tr>
                                                         <td style="width: 150px;"><b>NISN</b></td>
-                                                        <td>2323123213213</td>
+                                                        <td>{{$d->id}}</td>
                                                     </tr>
                                                     <tr>
                                                         <td><b>Jenis Kelamin</b></td>
-                                                        <td>Laki-Laki</td>
+                                                        <td>{{$d->jenis_kelamin}}</td>
                                                     </tr>
                                                     <tr>
                                                         <td><b>Agama</b></td>
-                                                        <td>Kristen</td>
+                                                        <td>{{$d->agama}}</td>
                                                     </tr>
-
+                                                    
                                                     <tr>
                                                         <td><b>Tempat Lahir</b></td>
-                                                        <td>Jakarta</td>
+                                                        <td>{{$d->tempat_lahir}}</td>
                                                     </tr>
-
+                                                    
                                                     <tr>
                                                         <td><b>Tanggal Lahir</b></td>
-                                                        <td>2000-11-1</td>
+                                                        <td>{{$d->tanggal_lahir}}</td>
                                                     </tr>
-
+                                                    
                                                     <tr>
                                                         <td><b>Alamat</b></td>
-                                                        <td>jalan nilai A</td>
+                                                        <td>{{$d->alamat}}</td>
                                                     </tr>
-
+                                                    
                                                     <tr>
                                                         <td><b>Kota Asal</b></td>
-                                                        <td>Medan</td>
+                                                        <td>{{$d->kota_asal}}</td>
                                                     </tr>
 
                                                     <tr>
                                                         <td><b>Nama Ayah</b></td>
-                                                        <td>bapak</td>
+                                                        <td>{{$d->nama_ayah}}</td>
                                                     </tr>
-
+                                                    
                                                     <tr>
                                                         <td><b>Pekerjaan Ayah</b></td>
-                                                        <td>Pengusaha</td>
+                                                        <td>{{$d->pekerjaan_ayah}}</td>
                                                     </tr>
-
+                                                    
                                                     <tr>
                                                         <td><b>No Hp Ayah</b></td>
-                                                        <td>089827277277</td>
+                                                        <td>{{$d->no_hp_ayah}}</td>
                                                     </tr>
-
+                                                    
                                                     <tr>
                                                         <td><b>Nama Ibu</b></td>
-                                                        <td>Ibu</td>
+                                                        <td>{{$d->nama_ibu}}</td>
                                                     </tr>
-
+                                                    
                                                     <tr>
                                                         <td><b>Pekerjaan Ibu</b></td>
-                                                        <td>Ibu Rumah Tangga</td>
+                                                        <td>{{$d->pekerjaan_ibu}}</td>
                                                     </tr>
 
                                                     <tr>
                                                         <td><b>No Hp Ibu</b></td>
-                                                        <td>08957272771</td>
+                                                        <td>{{$d->no_hp_ibu}}</td>
                                                     </tr>
-
-
+                                                    
+                                                    
                                                 </tbody>
                                             </table>
                                         </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            @endforeach
+                            
+                            <div class="container mb-3">
+                                <div class="card bg-white shadow p-4 mb-4">
+                                    
+                                    
+                                    <div id="page-content-wrapper">
+                                        
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">No.</th>
+                                                    <th scope="col">Bulan</th>
+                                                    <th scope="col">Nominal</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Action</th> 
+                                                </tr>
+                                        </thead>
+                                        <tbody>
+                                                @foreach ($histori_spp as $hs)
+                                                    <tr>
+                                                        <td>{{$loop->iteration}}</td>
+                                                        <td>{{$hs->nama_bulan}}</td>
+                                                        <td>{{$hs->nominal}}</td>
+                                                        @if ($hs->nominal == 150000)
+                                                            <td>
+                                                                Lunas
+                                                            </td>
+                                                        
+                                                        @elseif ($hs->nominal < 150000)
+                                                            <td>
+                                                                Belum Lunas
+                                                            </td>
+                                                        
+                                                        @endif
+                                                        </td>
+                                                        
+                                                        <td>
+                                                            <a href="{{ route('spp_edit' , $hs->id) }}"> <button type="submit" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Edit</button> </a>
+                                                            <a href="{{ route('spp_delete' , $hs->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Hapus</a>
+                                                        </td>
+
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                            </table>
+                                            <br>
+                                        </form>
+
+                                        
+                                        
+                                    </div>
+                                </div>
+                            </div>
 
             </div>
 
 
             
                                     <div class="container mb-3 px-5">
-                                        <div class=" card bg-white shadow p-4 mb-4">                
-                                            <h6>Cicilan Ke</h6>
-                                            <select class="form-select form-control" aria-label="Default select example">
-                                                <option selected>Silahkan Pilih Opsi</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                              </select>
-                                              
-                                            <h6 class="mt-4">Nominal</h6>
-                                            <input type="number" class="form-control mb-3" placeholder="Masukkan nominal">
-                
-                                            <button type="button" class="btn btn-success">Konfirmasi</button>
+                                        <div class=" card bg-white shadow p-4 mb-4"> 
+                                            <h5 class="mb-3">Tambah Data </h5> 
+                                                
+                                            <form method="POST" action="{{  route('spp_create')  }}">
+                                                @csrf  
+                                                <input type="hidden" name="id" value="{{$nim}}" >
+                                                
+                                                <h6>Bulan</h6>
+                                                
+                                                <select class="form-select form-control" name="month" aria-label="Default select example">
+                                                    <option selected>Silahkan Pilih Opsi</option>
+                                                    @foreach ($bulan as $b)
+                                                    <option value="{{$b->id_bulan}}">{{$b->nama_bulan}}</option>
+                                                    @endforeach
+                                                </select>
+                                                
+                                                <h6 class="mt-4">Nominal</h6>
+                                                <input type="text" class="form-control mb-3" name="nominal" placeholder="Masukkan nominal">
+                                                
+                                                <button type="submit"  class="btn btn-success">Konfirmasi</button>
+                                            </form>
                                         </div>
                                     </div>
                     
@@ -318,22 +386,20 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="{{asset('js/demo/chart-area-demo.js')}}"></script>
+    <script src="{{asset('js/demo/chart-pie-demo.js')}}"></script>
 
     <script src="https://kit.fontawesome.com/866812587f.js" crossorigin="anonymous"></script>
 

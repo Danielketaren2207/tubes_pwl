@@ -121,4 +121,16 @@ class DataSiswaController extends Controller
         $tambahdatasiswa->delete();
         return back();
     }
+
+    public function search()
+    {
+        $datasiswa = User::latest()->where('hak_akses','2');
+
+        if(request('search')){
+            $datasiswa->where('name', 'like', '%'. request('search'). '%');
+        }
+
+        return view('admin_carisiswa', ["datasiswa" => $datasiswa->get()]);
+    }
+
 }
