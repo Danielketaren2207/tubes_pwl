@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DataSiswaController;
 use App\Http\Controllers\SPPController;
+use App\Http\Controllers\UangPangkalController;
 
 
 use Illuminate\Support\Facades\Auth;
@@ -72,9 +73,9 @@ Route::get('/admintambahuangpangkal', function () {
     return view('admin_tambahuangpangkal');
 });
 
-// Route::get('/adminkonfirmasi', function () {
-//     return view('admin_konfirmasi');
-// });
+Route::get('/adminkonfirmasi', function () {
+    return view('admin_konfirmasi');
+});
 
 // Route::get('/', function () {
 //     return view('halamanutama');
@@ -114,3 +115,8 @@ Route::get('/admindataspp/delete/{id}', [App\Http\Controllers\SPPController::cla
 Route::get('/admindataspp/edit/{id}', [App\Http\Controllers\SPPController::class, 'edit'])-> name('spp_edit');
 Route::post('/admindataspp/update/{id}', [App\Http\Controllers\SPPController::class, 'update'])-> name('spp_update');
 Route::post('/admindataspp/create', [App\Http\Controllers\SPPController::class, 'store'])-> name('spp_create');
+
+Route::get('/admincariupsiswa', [App\Http\Controllers\UangPangkalController::class, 'search'])-> name('admin_search_up');
+Route::get('/admindatauangpangkal/{id}', [App\Http\Controllers\UangPangkalController::class, 'index'])->name('admin_up');
+Route::get('/admindatauangpangkal/delete/{id}', [App\Http\Controllers\UangPangkalController::class, 'destroy'])-> name('up_delete');
+Route::post('/admindatauangpangkal/create', [App\Http\Controllers\UangPangkalController::class, 'store'])-> name('up_create');

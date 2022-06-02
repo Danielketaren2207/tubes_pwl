@@ -68,7 +68,7 @@
                 <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="admintambahuangpangkal">Uang Pangkal</a>
+                        <a class="collapse-item" href="{{route('admin_search_up')}}">Uang Pangkal</a>
                         <a class="collapse-item active" href="{{route('search_datasiswa')}}">SPP Bulanan</a>
                     </div>
                 </div>
@@ -267,7 +267,8 @@
                                     
                                     
                                     <div id="page-content-wrapper">
-                                        
+                                        <h4>Histori Pembayaran SPP</h4>
+                                        <h6>Pembayaran sebulan sebesar Rp 150.000</h6>
                                         <table class="table">
                                             <thead>
                                                 <tr>

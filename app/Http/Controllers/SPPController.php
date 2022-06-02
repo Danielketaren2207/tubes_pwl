@@ -46,7 +46,7 @@ class SPPController extends Controller
     public function store(Request $request)
     {
         //$spp digunakan untuk mengecek apakah ada data pada bulan yang sama 
-        $spp = SPP::all()->where('id_bulan' , $request->month)->count();
+        $spp = SPP::all()->where('id_bulan' , $request->month)->where('id_siswa', $request->id)->count();
 
         if($spp > 0){
             return back()->with ('warning','Data untuk bulan ini sudah ada');
