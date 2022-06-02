@@ -12,21 +12,17 @@ class BeritaController extends Controller
 
     public function utama()
     {
-        $databerita = Berita::all();
+        $databerita = Berita::all()->take(10);
         return view ('halamanutama' , compact('databerita'));
     }
 
     public function created()
     {
-        $databerita = Berita::all();
+        $databerita = Berita::paginate(1);
         return view ('admin_berita' , compact('databerita'));
     }
 
-    public function index()
-    {
-        $databerita = Berita::all();
-        // return view ('admin_editberita' , compact('databerita'));
-    }
+   
 
     public function create()
     {

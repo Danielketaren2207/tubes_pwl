@@ -170,22 +170,32 @@
                                     <div class="row">
                                         <div class="col-3">
                                             <img src="img/IMG-20200827-WA0001.jpg" class="rounded" style="width: 200px;" alt="">
+                                            
                                         </div>
                                         <div class="col-8">
-                                            <h2 style="font-weight: 800">Daniel Andrew Ketaren</h2>
+                                            <h2 style="font-weight: 800">{{ Auth::user()->name }}</h2>
                                             <table style="border: 1px soli transparent;">
                                                 <tbody>
                                                     <tr>
                                                         <td style="width: 150px;"><b>NIP</b></td>
-                                                        <td>2323123213213</td>
+                                                        <td> {{ Auth::user()->id }} </td>
                                                     </tr>
                                                     <tr>
                                                         <td><b>Jabatan</b></td>
-                                                        <td>Tata Usaha</td>
+                                                    <td>
+                                                        @if(auth()->user()->hak_akses == 1)
+                                                              Admin 
+                                                        @elseif(auth()->user()->hak_akses == 2)
+                                                             Siswa
+                                                        
+                                                        @endif
+                                                    </td>
+                                                    
+
                                                     </tr>
                                                     <tr>
                                                         <td><b>Tahun Masuk</b></td>
-                                                        <td>2009</td>
+                                                        <td> {{ date('d-m-Y' , strtotime(Auth::user()->created_at)) }} </td>
                                                     </tr>
                                                 </tbody>
                                             </table>

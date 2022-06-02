@@ -106,6 +106,7 @@ Route::get('/admin_hapussiswa/{id}', [App\Http\Controllers\DataSiswaController::
 Route::get('/admineditsiswa/{id}', [App\Http\Controllers\DataSiswaController::class, 'edit'])->name('admin_editsiswa');
 Route::post('/admin_editsiswa_simpan/{id}', [App\Http\Controllers\DataSiswaController::class, 'update'])->name('admin_editsiswa_simpan');
 Route::get('/adminviewsiswa/{id}', [App\Http\Controllers\DataSiswaController::class, 'show'])->name('admin_viewsiswa');
+Route::get('/admindatasiswa', [App\Http\Controllers\DataSiswaController::class, 'search2'])-> name('search2_datasiswa');
 
 
 Route::get('/admindataspp/{id}', [App\Http\Controllers\SPPController::class, 'index'])->name('admin_spp');

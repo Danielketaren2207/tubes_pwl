@@ -198,7 +198,7 @@
                                                         <th scope="row"> {{$loop->iteration}} </th>
                                                         <td>{{$item->id}}</td>
                                                         <td>
-                                                            <img src="{{ url('storage/app/image/' .$item->image) }}" class="rounded" style="width: 200px">
+                                                            <img src="{{ url('storage/image/' .$item->image) }}" class="rounded" style="width: 200px">
                                                         </td>
                                                         <td> {{$item->name}}</td>
                                                         <td> {{$item->email}}</td>

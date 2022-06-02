@@ -15,7 +15,8 @@ class DataSiswaController extends Controller
      */
     public function index()
     {     
-        $datasiswa = User::all()->where('hak_akses','2');
+        $datasiswa = User::paginate(1)->where('hak_akses','2');
+        // $datasiswa = DB::table('user')->paginate(1);
         return view ('admin_datasiswa' , compact('datasiswa'));
     }
 
@@ -124,7 +125,7 @@ class DataSiswaController extends Controller
 
     public function search()
     {
-        $datasiswa = User::latest()->where('hak_akses','2');
+        $datasiswa = User::oldest()->where('hak_akses','2');
 
         if(request('search')){
             $datasiswa->where('name', 'like', '%'. request('search'). '%');
@@ -132,5 +133,17 @@ class DataSiswaController extends Controller
 
         return view('admin_carisiswa', ["datasiswa" => $datasiswa->get()]);
     }
+
+    public function search2()
+    {
+        $datasiswa = User::oldest()->where('hak_akses','2');
+
+        if(request('search')){
+            $datasiswa->where('name', 'like', '%'. request('search'). '%');
+        }
+
+        return view('admin_datasiswa', ["datasiswa" => $datasiswa->get()]);
+    }
+
 
 }
