@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Data Siswa</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -67,7 +67,7 @@
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         
-                        <a class="collapse-item" href="admintambahuangpangkal">Uang Pangkal</a>
+                        <a class="collapse-item" href="{{ route('admin_search_up') }}">Uang Pangkal</a>
                         <a class="collapse-item" href="admincarisiswa">SPP Bulanan</a>
                     </div>
                 </div>
@@ -170,7 +170,7 @@
 
 
 
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-1 my-2 my-md-0 mw-100 navbar-search" action="/admindatasiswa" method="get" >
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-1 my-2 my-md-0 mw-100 navbar-search" action="/admincaridatasiswa" method="get" >
                         <div class="input-group mb-3">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Cari Data Siswa"
                                 aria-label="Search" aria-describedby="basic-addon2" name="search">
@@ -223,27 +223,7 @@
                                   
                                       <br>
            
-                                      {{-- PAGINATION --}}
                                       
-                                      
-
-                                      <nav aria-label="Page navigation example">
-                                        <ul class="pagination justify-content-center">
-                                          <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Previous">
-                                              <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                          </li>
-                                          <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                          <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Next">
-                                              <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                          </li>
-                                        </ul>
-                                      </nav> 
 
                         </div>
                     </div>

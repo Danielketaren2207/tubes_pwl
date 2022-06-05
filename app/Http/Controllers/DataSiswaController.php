@@ -15,8 +15,7 @@ class DataSiswaController extends Controller
      */
     public function index()
     {     
-        $datasiswa = User::paginate(1)->where('hak_akses','2');
-        // $datasiswa = DB::table('user')->paginate(1);
+        $datasiswa = User::all()->where('hak_akses','2');
         return view ('admin_datasiswa' , compact('datasiswa'));
     }
 

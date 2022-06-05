@@ -32,9 +32,14 @@ class SPPController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function cetak($id)
     {
-        //
+        $data = User::all()->where('id' , $id);
+        $histori_spp = DB::table('spps')->join('month', 'spps.id_bulan', '=', 'month.id_bulan')->where('id_siswa' , $id)->get();
+        $nim = $id;
+        $bulan = Month::all();
+
+        return view('cetak_spp', compact('data', 'histori_spp','bulan', 'nim'));
     }
 
     /**
@@ -76,9 +81,9 @@ class SPPController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+
     }
 
     /**

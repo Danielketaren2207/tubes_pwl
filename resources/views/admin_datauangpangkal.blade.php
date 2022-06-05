@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Data Uang Pangkal</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -41,7 +41,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="admin">
+                <a class="nav-link" href=" {{ route('admin_dashboard') }} ">
                     <i class="fa-solid fa-house"></i>
                     <span>Home</span></a>
             </li>
@@ -68,8 +68,8 @@
                 <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{route('admin_search_up')}}">Uang Pangkal</a>
-                        <a class="collapse-item active" href="{{route('search_datasiswa')}}">SPP Bulanan</a>
+                        <a class="collapse-item active" href="{{route('admin_search_up')}}">Uang Pangkal</a>
+                        <a class="collapse-item" href="{{route('search_datasiswa')}}">SPP Bulanan</a>
                     </div>
                 </div>
             </li>
@@ -179,12 +179,14 @@
                         </div>
                         @endif
                         @foreach ($data as $d)
-                            
+                        <a href="{{ url('cetakup', $d->id) }}"> <button type="button" class="btn btn-success mb-3"> Cetak <i class="fa-solid fa-print"></i></button> </a>
+                           
                         <div class="container mb-3">
                             <div class="card bg-white shadow p-4 mb-4">
                                 <div class="row">
                                     <div class="col-3">
-                                        <img src="{{asset('img/IMG-20200827-WA0001.jpg')}}" class="rounded" style="width: 200px;" alt="">
+                                        <img src="{{ url('storage/image/' . $d->image)}}" class="rounded" style="width: 200px"> 
+
                                     </div>
                                     <div class="col-8">
                                         <h2 style="font-weight: 800">{{$d->name}}</h2>

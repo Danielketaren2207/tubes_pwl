@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Edit Berita</title>
 
     <!-- Custom fonts for this template-->
     <link href=" {{asset(' vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css" >
@@ -40,19 +40,19 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="admin">
+                <a class="nav-link" href=" {{ route('admin_dashboard') }} ">
                     <i class="fa-solid fa-house"></i>
                     <span>Home</span></a>
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="adminberita">
+                <a class="nav-link" href="{{ route('admin_berita') }} ">
                     <i class="fa-solid fa-newspaper"></i>
                     <span>Berita</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="admindatasiswa">
+                <a class="nav-link" href="{{ route('admin_datasiswa') }}">
                     <i class="fa-solid fa-address-card"></i>
                     <span>Data Siswa</span></a>
             </li>
@@ -66,8 +66,8 @@
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         
-                        <a class="collapse-item" href="admintambahuangpangkal">Uang Pangkal</a>
-                        <a class="collapse-item" href="admincarisiswa">SPP Bulanan</a>
+                        <a class="collapse-item" href="{{ route('admin_search_up') }}">Uang Pangkal</a>
+                        <a class="collapse-item" href="{{ route('search_datasiswa') }}">SPP Bulanan</a>
                     </div>
                 </div>
             </li>

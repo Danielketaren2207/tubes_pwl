@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Data SPP</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -179,12 +179,13 @@
                         </div>
                         @endif
                         @foreach ($data as $d)
-                            
+                        <a href="{{ url('cetakspp', $d->id) }}"> <button type="button" class="btn btn-success mb-3"> Cetak <i class="fa-solid fa-print"></i></button> </a>
                         <div class="container mb-3">
                             <div class="card bg-white shadow p-4 mb-4">
                                 <div class="row">
                                     <div class="col-3">
-                                        <img src="{{asset('img/IMG-20200827-WA0001.jpg')}}" class="rounded" style="width: 200px;" alt="">
+                                        <img src="{{ url('storage/image/' . $d->image)}}" class="rounded" style="width: 200px"> 
+
                                     </div>
                                     <div class="col-8">
                                         <h2 style="font-weight: 800">{{$d->name}}</h2>

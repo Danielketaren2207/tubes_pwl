@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Menu SPP</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -67,7 +67,7 @@
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         
-                        <a class="collapse-item" href="admintambahuangpangkal">Uang Pangkal</a>
+                        <a class="collapse-item" href="{{ route('admin_search_up') }}">Uang Pangkal</a>
                         <a class="collapse-item active" href="admincarisiswa">SPP Bulanan</a>
                     </div>
                 </div>
