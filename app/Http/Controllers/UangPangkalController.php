@@ -29,9 +29,13 @@ class UangPangkalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function cetak($id)
     {
-        //
+        $data = User::all()->where('id' , $id);
+        $histori_up = DB::table('uang_pangkal')->where('id_siswa' , $id)->get();
+        $nim = $id;
+
+        return view('cetak_uangpangkal', compact('data', 'histori_up', 'nim'));
     }
 
     /**

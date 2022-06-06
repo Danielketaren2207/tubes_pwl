@@ -167,10 +167,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                             
+                                            @foreach ($data as $d)
+                                                
+                                            @endforeach
+
                                             <tr>
                                                 <td>1</td>
                                                 <td>Alan Walker</td>
-                                                <td>Mei 2022</td>
+                                                <td> {{ $d->month }} </td>
                                                 <td>150.000</td>
                                                 <td>Dicicil</td>
                                                 <td>23 Mei 2022</td>

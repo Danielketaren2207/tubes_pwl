@@ -9,12 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Edit Data Siswa</title>
 
     <!-- Custom fonts for this template-->
     <link href=" {{asset(' vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css" >
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- Custom styles for this template-->
     <link rel="stylesheet" href="{{asset('css/sb-admin-2.min.css')}}" >
 
@@ -39,19 +40,19 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="admin">
+                <a class="nav-link" href=" {{ route('admin_dashboard') }} ">
                     <i class="fa-solid fa-house"></i>
                     <span>Home</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="adminberita">
+                <a class="nav-link" href=" {{ route('admin_berita') }} ">
                     <i class="fa-solid fa-newspaper"></i>
                     <span>Berita</span></a>
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="admindatasiswa">
+                <a class="nav-link" href=" {{ route('admin_datasiswa') }} ">
                     <i class="fa-solid fa-address-card"></i>
                     <span>Data Siswa</span></a>
             </li>
@@ -65,8 +66,8 @@
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         
-                        <a class="collapse-item" href="admintambahuangpangkal">Uang Pangkal</a>
-                        <a class="collapse-item" href="admintambahuangspp">SPP Bulanan</a>
+                        <a class="collapse-item" href="{{ route('admin_search_up') }}">Uang Pangkal</a>
+                        <a class="collapse-item" href="{{ route('search_datasiswa') }}">SPP Bulanan</a>
                     </div>
                 </div>
             </li>
@@ -467,11 +468,11 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src=" {{ asset('vendor/jquery/jquery.min.js') }} "></script>
+    <script src="  {{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }} "></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="  {{ asset('vendor/jquery-easing/jquery.easing.min.js') }} "></script>
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>

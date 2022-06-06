@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Dashboard Admin</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -67,7 +67,7 @@
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         
-                        <a class="collapse-item" href="admintambahuangpangkal">Uang Pangkal</a>
+                        <a class="collapse-item" href="{{ route('admin_search_up') }}">Uang Pangkal</a>
                         <a class="collapse-item" href="admincarisiswa">SPP Bulanan</a>
                     </div>
                 </div>
@@ -170,6 +170,7 @@
                                     <div class="row">
                                         <div class="col-3">
                                             <img src="img/IMG-20200827-WA0001.jpg" class="rounded" style="width: 200px;" alt="">
+
                                         </div>
                                         <div class="col-8">
                                             <h2 style="font-weight: 800">Daniel Andrew Ketaren</h2>
@@ -177,15 +178,24 @@
                                                 <tbody>
                                                     <tr>
                                                         <td style="width: 150px;"><b>NIP</b></td>
-                                                        <td>2323123213213</td>
+                                                        <td>{{ Auth::user()->id }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td><b>Jabatan</b></td>
-                                                        <td>Tata Usaha</td>
+                                                    <td>
+                                                        @if(auth()->user()->hak_akses == 1)
+                                                                Admin 
+                                                        @elseif(auth()->user()->hak_akses == 2)
+                                                                Siswa
+                                                        
+                                                        @endif
+                                                    </td>
+
+
                                                     </tr>
                                                     <tr>
                                                         <td><b>Tahun Masuk</b></td>
-                                                        <td>2009</td>
+                                                        <td> {{ date('d-m-Y' , strtotime(Auth::user()->created_at)) }} </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
