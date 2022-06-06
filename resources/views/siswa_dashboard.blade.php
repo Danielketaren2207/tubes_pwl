@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Dashboard Siswa</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -62,7 +62,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         
                         <a class="collapse-item" href="siswauangpangkal">Uang Pangkal</a>
-                        <a class="collapse-item" href="siswauangspp">SPP Bulanan</a>
+                        <a class="collapse-item" href=" {{ route('siswa_spp') }} ">SPP Bulanan</a>
                     </div>
                 </div>
             </li>

@@ -63,23 +63,25 @@ use Illuminate\Support\Facades\Auth;
 //     return view('admin_profilesiswa');
 // });
 
-Route::get('/admintambahspp', function () {
-    return view('admin_tambahspp');
-});
+// Route::get('/admintambahspp', function () {
+//     return view('admin_tambahspp');
+// });
 
 
 
-Route::get('/admintambahuangpangkal', function () {
-    return view('admin_tambahuangpangkal');
-});
+// Route::get('/admintambahuangpangkal', function () {
+//     return view('admin_tambahuangpangkal');
+// });
 
-Route::get('/adminkonfirmasi', function () {
-    return view('admin_konfirmasi');
-});
+// Route::get('/adminkonfirmasi', function () {
+//     return view('admin_konfirmasi');
+// });
 
 // Route::get('/', function () {
 //     return view('halamanutama');
 // });
+
+
 
 
 
@@ -107,6 +109,7 @@ Route::get('/admin_hapussiswa/{id}', [App\Http\Controllers\DataSiswaController::
 Route::get('/admineditsiswa/{id}', [App\Http\Controllers\DataSiswaController::class, 'edit'])->name('admin_editsiswa');
 Route::post('/admin_editsiswa_simpan/{id}', [App\Http\Controllers\DataSiswaController::class, 'update'])->name('admin_editsiswa_simpan');
 Route::get('/adminviewsiswa/{id}', [App\Http\Controllers\DataSiswaController::class, 'show'])->name('admin_viewsiswa');
+Route::get('/admincaridatasiswa', [App\Http\Controllers\DataSiswaController::class, 'search2'])-> name('search2_datasiswa');
 
 
 Route::get('/admindataspp/{id}', [App\Http\Controllers\SPPController::class, 'index'])->name('admin_spp');
@@ -114,8 +117,22 @@ Route::get('/admindataspp/delete/{id}', [App\Http\Controllers\SPPController::cla
 Route::get('/admindataspp/edit/{id}', [App\Http\Controllers\SPPController::class, 'edit'])-> name('spp_edit');
 Route::post('/admindataspp/update/{id}', [App\Http\Controllers\SPPController::class, 'update'])-> name('spp_update');
 Route::post('/admindataspp/create', [App\Http\Controllers\SPPController::class, 'store'])-> name('spp_create');
+Route::get('/cetakspp/{id}', [App\Http\Controllers\SPPController::class, 'cetak'])->name('cetak_spp');
 
+Route::get('/siswauangspp', [App\Http\Controllers\SPPController::class, 'show'])->name('siswa_spp');
+
+
+
+
+Route::get('/cetakup/{id}', [App\Http\Controllers\UangPangkalController::class, 'cetak'])->name('cetak_up');
 Route::get('/admincariupsiswa', [App\Http\Controllers\UangPangkalController::class, 'search'])-> name('admin_search_up');
 Route::get('/admindatauangpangkal/{id}', [App\Http\Controllers\UangPangkalController::class, 'index'])->name('admin_up');
 Route::get('/admindatauangpangkal/delete/{id}', [App\Http\Controllers\UangPangkalController::class, 'destroy'])-> name('up_delete');
 Route::post('/admindatauangpangkal/create', [App\Http\Controllers\UangPangkalController::class, 'store'])-> name('up_create');
+
+Route::get('/adminkonfirmasi', [App\Http\Controllers\KonfirmasiController::class, 'index'])->name('admin_konfirmasi');
+Route::get('/adminkonfirmasi/salur/{id}', [App\Http\Controllers\KonfirmasiController::class, 'salur'])->name('konfirmasi_salur');
+Route::post('/adminkonfirmasi/allow/{id}', [App\Http\Controllers\KonfirmasiController::class, 'allow'])->name('konfirmasi_allowed');
+Route::get('/adminkonfirmasi/block/{id}', [App\Http\Controllers\KonfirmasiController::class, 'block'])->name('konfirmasi_blocked');
+Route::post('/siswakonfirmasiadmin/create', [App\Http\Controllers\KonfirmasiController::class, 'store'])->name('konfirmasi_create');
+

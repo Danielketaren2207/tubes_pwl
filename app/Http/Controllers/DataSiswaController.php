@@ -124,7 +124,7 @@ class DataSiswaController extends Controller
 
     public function search()
     {
-        $datasiswa = User::latest()->where('hak_akses','2');
+        $datasiswa = User::oldest()->where('hak_akses','2');
 
         if(request('search')){
             $datasiswa->where('name', 'like', '%'. request('search'). '%');
@@ -132,5 +132,17 @@ class DataSiswaController extends Controller
 
         return view('admin_carisiswa', ["datasiswa" => $datasiswa->get()]);
     }
+
+    public function search2()
+    {
+        $datasiswa = User::oldest()->where('hak_akses','2');
+
+        if(request('search')){
+            $datasiswa->where('name', 'like', '%'. request('search'). '%');
+        }
+
+        return view('admin_datasiswa', ["datasiswa" => $datasiswa->get()]);
+    }
+
 
 }
