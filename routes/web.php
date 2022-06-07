@@ -30,17 +30,17 @@ use Illuminate\Support\Facades\Auth;
 //     return view('siswa_dashboard');
 // });
 
-// Route::get('/siswauangpangkal', function () {
-//     return view('siswa_uangpangkal');
-// });
+Route::get('/siswauangpangkal', function () {
+    return view('siswa_uangpangkal');
+});
 
-// Route::get('/siswauangspp', function () {
-//     return view('siswa_uangspp');
-// });
+Route::get('/siswauangspp', function () {
+    return view('siswa_uangspp');
+});
 
-// Route::get('/siswakonfirmasiadmin', function () {
-//     return view('siswa_konfirmasiadmin');
-// });
+Route::get('/siswakonfirmasiadmin', function () {
+    return view('siswa_konfirmasiadmin');
+});
 
 
 // Route::get('/admin', function () {

@@ -67,7 +67,7 @@
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         
-                        <a class="collapse-item" href=" {{ route('admin_search_up') }} ">Uang Pangkal</a>
+                        <a class="collapse-item" href="{{ route('admin_search_up') }}">Uang Pangkal</a>
                         <a class="collapse-item" href="admincarisiswa">SPP Bulanan</a>
                     </div>
                 </div>
@@ -170,7 +170,6 @@
                                     <div class="row">
                                         <div class="col-3">
                                             <img src="img/IMG-20200827-WA0001.jpg" class="rounded" style="width: 200px;" alt="">
-                                            
                                         </div>
                                         <div class="col-8">
                                             <h2 style="font-weight: 800">{{ Auth::user()->name }}</h2>
@@ -178,19 +177,19 @@
                                                 <tbody>
                                                     <tr>
                                                         <td style="width: 150px;"><b>NIP</b></td>
-                                                        <td> {{ Auth::user()->id }} </td>
+                                                        <td>{{ Auth::user()->id }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td><b>Jabatan</b></td>
                                                     <td>
                                                         @if(auth()->user()->hak_akses == 1)
-                                                              Admin 
+                                                                Admin 
                                                         @elseif(auth()->user()->hak_akses == 2)
-                                                             Siswa
+                                                                Siswa
                                                         
                                                         @endif
                                                     </td>
-                                                    
+
 
                                                     </tr>
                                                     <tr>
