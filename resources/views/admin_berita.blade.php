@@ -208,7 +208,6 @@
                                             <th scope="row">1</th>
                                             <td>Bermain Sambil Belajar</td>
                                             <td>Kemajuan bangsa Indonesia di masa depan tergantung generasi muda saat ini. Untuk menciptakan generasi yang unggul, anak-anak muda perlu dibekali pendidikan karakter yang baik.</td>
-
                                             <td> <img src="gambar/th (1).jpg" alt="" width="200px" height="150px"> </td>
                                             <td>2022-05-12</td>
                                             <td> <a href="{{ route('admin_editberita') }}"> <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button> </a>
@@ -219,9 +218,10 @@
                                       </table>
                                       <br>
             {{-- PAGINATION --}}
-                                      
+
+
                                       {{ $databerita->links("pagination::bootstrap-4") }}
-                                    
+
                         </div>
                     </div>
                 </div>
@@ -303,7 +303,6 @@
 
 </body>
 <script>
-
 $('.delete').click( function(){
     var beritaid = $(this).attr('data-id');
     swal({

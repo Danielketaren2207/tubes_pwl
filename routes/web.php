@@ -30,17 +30,17 @@ use Illuminate\Support\Facades\Auth;
 //     return view('siswa_dashboard');
 // });
 
-// Route::get('/siswauangpangkal', function () {
-//     return view('siswa_uangpangkal');
-// });
+Route::get('/siswauangpangkal', function () {
+    return view('siswa_uangpangkal');
+});
 
-// Route::get('/siswauangspp', function () {
-//     return view('siswa_uangspp');
-// });
+Route::get('/siswauangspp', function () {
+    return view('siswa_uangspp');
+});
 
-// Route::get('/siswakonfirmasiadmin', function () {
-//     return view('siswa_konfirmasiadmin');
-// });
+Route::get('/siswakonfirmasiadmin', function () {
+    return view('siswa_konfirmasiadmin');
+});
 
 
 // Route::get('/admin', function () {
@@ -129,3 +129,10 @@ Route::get('/admincariupsiswa', [App\Http\Controllers\UangPangkalController::cla
 Route::get('/admindatauangpangkal/{id}', [App\Http\Controllers\UangPangkalController::class, 'index'])->name('admin_up');
 Route::get('/admindatauangpangkal/delete/{id}', [App\Http\Controllers\UangPangkalController::class, 'destroy'])-> name('up_delete');
 Route::post('/admindatauangpangkal/create', [App\Http\Controllers\UangPangkalController::class, 'store'])-> name('up_create');
+
+Route::get('/adminkonfirmasi', [App\Http\Controllers\KonfirmasiController::class, 'index'])->name('admin_konfirmasi');
+Route::get('/adminkonfirmasi/salur/{id}', [App\Http\Controllers\KonfirmasiController::class, 'salur'])->name('konfirmasi_salur');
+Route::post('/adminkonfirmasi/allow/{id}', [App\Http\Controllers\KonfirmasiController::class, 'allow'])->name('konfirmasi_allowed');
+Route::get('/adminkonfirmasi/block/{id}', [App\Http\Controllers\KonfirmasiController::class, 'block'])->name('konfirmasi_blocked');
+Route::post('/siswakonfirmasiadmin/create', [App\Http\Controllers\KonfirmasiController::class, 'store'])->name('konfirmasi_create');
+

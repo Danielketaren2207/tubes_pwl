@@ -164,54 +164,56 @@
                 <div id="page-content-wrapper">
                     <div class="container-fluid mt-4">
                         <h2 class="subjudul"> Konfirmasi Admin </h2>
-        
+                            @foreach ($data as $kf)
+                                
                             <div class="container mb-3">
                                 <div class="card bg-white shadow p-4 mb-4">
                                     <div class="row">
                                         <div class="col-3">
                                             <h4>Bukti Transfer</h4>
-                                            <img src="img/IMG-20200827-WA0001.jpg" class="rounded" style="width: 200px;" alt="">
+                                            <img src="20161213_1.jpg" class="rounded" style="width: 200px;" alt="">
                                         </div>
-
-                                        <div class="col-8">
-                                        <table class="mt-5" style="border: 1px soli transparent;">
-                                            <tbody>
-                                                <tr>
-                                                    <td style="width: 150px;"><b>Nama Siswa</b></td>
-                                                    <td>Bill</td>
-                                                </tr>
-                                                <tr>
                                         
+                                        <div class="col-8">
+                                            <table class="mt-5" style="border: 1px soli transparent;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="width: 150px;"><b>Nama Siswa</b></td>
+                                                        <td>{{$kf->name}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        
                                                         <td style="width: 150px;"><b>NISN</b></td>
-                                                        <td>2323123213213</td>
+                                                        <td>{{$kf->id}}</td>
                                                     </tr>
                                                     
-                                                        <tr>
-                                                            <td style="width: 150px;"><b>Nama Wali Siswa</b></td>
-                                                            <td>Bapack</td>
+                                                    <tr>
+                                                        <td style="width: 150px;"><b>Nama Wali Siswa</b></td>
+                                                        <td>{{$kf->nama_ayah}}</td>
                                                         </tr>
-
+                                                        
                                                         <tr>
                                                             <td style="width: 150px;"><b>Opsi Pembayaran</b></td>
-                                                            <td>Uang SPP</td>
+                                                            <td>{{$kf->opsi}}</td>
                                                         </tr>
-
+                                                        
                                                         <tr>
                                                             <td style="width: 150px;"><b>Nominal</b></td>
-                                                            <td>150.000.0000</td>
+                                                            <td>{{$kf->nominal}}</td>
                                                         </tr>
-                                                    
+                                                        
                                                     </tbody>
-
-                                    </table>
-                                    <div class="mt-4 me-3">
-                                    <button type="button" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
-                                    <button type="button" class="btn btn-danger"><i class="fa-solid fa-ban"></i></button>
+                                                    
+                                                </table>
+                                                <div class="mt-4 me-3">
+                                                    <a href="{{ route('konfirmasi_salur' , $kf->id_conf) }}" type="button" class="btn btn-success"><i class="fa-solid fa-check"></i></a>
+                                                    <a href="{{ route('konfirmasi_blocked' , $kf->id_conf) }}" type="button" class="btn btn-danger"><i class="fa-solid fa-ban"></i></a>
+                                                </div>
+                                            </div>                                        
+                                        </div>
+                                    </div>
                                 </div>
-                                </div>                                        
-                            </div>
-                        </div>
-                    </div>
+                                @endforeach
                 </div>
             </div>
 

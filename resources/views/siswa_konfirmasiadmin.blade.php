@@ -152,23 +152,24 @@
                                             <h2 style="font-weight: 700; font-size: 20px">HANYA TRANSFER KE REKENING BI 0982127718172 <br> Atas Nama <b>BANGSA INDONESIA</b></h2>
                                             <h5>Upload Bukti Transfer Dibawah Ini</h5> <br>
                                             
-                                            <form method="post" enctype="multipart/form-data" action="">
+                                            <form method="post" enctype="multipart/form-data" action="{{  route('konfirmasi_create') }}">
+                                                @csrf  
                                                 <Input type="file" name="gambar"> <br>
                                                     <div class="form-check mt-3">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                        <input class="form-check-input" type="radio" name="opsi" id="exampleRadios1" value="Uang Pangkal" checked>
+                                                        <label class="form-check-label" for="exampleRadios1">
+                                                          Uang Pangkal
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="opsi" id="exampleRadios1" value="SPP" checked>
+                                                        <label class="form-check-label" for="exampleRadios1">
                                                           Uang SPP
                                                         </label>
                                                       </div>
-                                                      <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                                        <label class="form-check-label" for="flexCheckChecked">
-                                                          Uang Pangkal
-                                                        </label>
-                                                      </div>
                                                     <label for="nominal" class="form-label mt-3">Masukkan Nominal</label>
-                                                    <input type="number" class="form-control">
-                                                <input type="submit" class="btn btn-primary mt-3" value="Upload">
+                                                    <input type="number" name="nominal" class="form-control">
+                                                <button type="submit" class="btn btn-primary mt-3">Upload</button>
                                                 
                                             </form>
 
