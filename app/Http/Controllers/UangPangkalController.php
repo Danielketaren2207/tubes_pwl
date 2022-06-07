@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Uang_pangkal;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 
 class UangPangkalController extends Controller
 {
@@ -105,9 +105,17 @@ class UangPangkalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $data = User::all()->where('id' , Auth::user()->id);
+        $data_sisa = Uang_pangkal::all()->where('id_siswa', Auth::user()->id )->sum('nominal');
+
+
+        $history_up = DB::table('uang_pangkal')->where('id_siswa' , Auth::user()->id)->get();
+        $nim = Auth::user()->id;
+        $sisa = 1000000 - $data_sisa;
+
+        return view('siswa_uangpangkal', compact('data', 'history_up', 'nim' ,'sisa'));
     }
 
     /**

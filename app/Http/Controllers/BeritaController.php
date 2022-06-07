@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use Alert;
 use App\Models\Berita;
 use Illuminate\Http\Request;
-use App\Models\User;
-use GrahamCampbell\ResultType\Success;
+
+
 
 class BeritaController extends Controller
 {
@@ -60,7 +61,8 @@ class BeritaController extends Controller
             request()->file(key: 'image')->storeAs('/berita', $image, options:'');
             $editberita->update(['image'=>$image]);
         }
-        return redirect('adminberita')->with ('success','Data Berhasil Diupdate!');
+        return back();
+
     }
 
     public function destroy($id)

@@ -41,7 +41,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="admin">
+                <a class="nav-link" href="{{ route('admin_dashboard') }}">
                     <i class="fa-solid fa-house"></i>
                     <span>Home</span></a>
             </li>

@@ -185,7 +185,7 @@
                                             <img src=" {{ url('storage/berita/' . $editberita->image) }}" width="300px">
                                             <input type="file" class="form-control mt-3" id="image" name="image" value=" {{ url('storage/image/' . $editberita->image) }} ">
                                           </div>                                              
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="button" class="btn btn-primary edit" data-id="{{$editberita->id}}" >Submit</button>
                                       </form>
 
 
@@ -245,6 +245,9 @@
         </div>
     </div>
 
+    @include('sweetalert::alert')
+
+
     <!-- Bootstrap core JavaScript-->
     <script src=" {{asset('vendor/jquery/jquery.min.js')}} "></script>
     <script src=" {{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}} "></script>
@@ -261,9 +264,35 @@
     <!-- Page level custom scripts -->
     <script src=" {{asset('js/demo/chart-area-demo.js')}} "></script>
     <script src=" {{asset('js/demo/chart-pie-demo.js')}} "></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script src="https://kit.fontawesome.com/866812587f.js" crossorigin="anonymous"></script>
 
 </body>
 
 </html>
+
+<script>
+    $('.edit').click( function(){
+        var beritaid = $(this).attr('data-id');
+        swal({
+                title: "Apakah Anda Yakin?",
+                text: "Kamu Akan Menedit Berita Ini! ",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                })
+                .then((willEdit) => {
+                if (willEdit) {
+                    window.location = "/adminberita"
+                    swal("Berita Berhasil DiUpdate!", {
+                    icon: "success",
+                    });
+                } 
+                // else {
+                //     swal("Your imaginary file is safe!");
+                // }
+                });
+    });
+                
+    </script>

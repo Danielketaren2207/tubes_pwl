@@ -171,7 +171,8 @@
                                     <div class="row">
                                         <div class="col-3">
                                             <h4>Bukti Transfer</h4>
-                                            <img src="20161213_1.jpg" class="rounded" style="width: 200px;" alt="">
+                                            <img src="{{ url('storage/konfirmasi/' .$kf->gambar) }}" class="rounded" style="width: 200px">
+
                                         </div>
                                         
                                         <div class="col-8">
