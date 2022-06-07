@@ -69,7 +69,7 @@
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         
-                        <a class="collapse-item" href="{{ route('admin_search_up') }}">Uang Pangkal</a>
+                        <a class="collapse-item" href=" {{ route('admin_search_up') }} ">Uang Pangkal</a>
                         <a class="collapse-item" href="admincarisiswa">SPP Bulanan</a>
                     </div>
                 </div>
@@ -218,6 +218,7 @@
                                       </table>
                                       <br>
             {{-- PAGINATION --}}
+
 
                                       {{ $databerita->links("pagination::bootstrap-4") }}
 

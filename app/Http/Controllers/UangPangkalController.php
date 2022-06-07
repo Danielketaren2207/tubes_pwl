@@ -147,7 +147,7 @@ class UangPangkalController extends Controller
 
     public function search()
     {
-        $datasiswa = User::latest()->where('hak_akses','2');
+        $datasiswa = User::oldest()->where('hak_akses','2');
 
         if(request('search')){
             $datasiswa->where('name', 'like', '%'. request('search'). '%');

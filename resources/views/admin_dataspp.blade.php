@@ -184,8 +184,8 @@
                             <div class="card bg-white shadow p-4 mb-4">
                                 <div class="row">
                                     <div class="col-3">
-                                        <img src="{{ url('storage/image/' . $d->image)}}" class="rounded" style="width: 200px;" alt="">
-                                        
+                                        <img src="{{ url('storage/image/' . $d->image)}}" class="rounded" style="width: 200px"> 
+
                                     </div>
                                     <div class="col-8">
                                         <h2 style="font-weight: 800">{{$d->name}}</h2>

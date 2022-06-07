@@ -41,7 +41,7 @@
         font-size: 23px;
         font-weight: 600;
     }
-    
+
     .konten{
         font-size: 18px;
         font-weight: 500;
