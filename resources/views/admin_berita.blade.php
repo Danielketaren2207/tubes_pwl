@@ -71,7 +71,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         
                         <a class="collapse-item" href=" {{ route('admin_search_up') }} ">Uang Pangkal</a>
-                        <a class="collapse-item" href="admincarisiswa">SPP Bulanan</a>
+                        <a class="collapse-item" href="{{ route('search_datasiswa') }}">SPP Bulanan</a>
                     </div>
                 </div>
             </li>
@@ -80,7 +80,7 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="adminkonfirmasi">
+                <a class="nav-link" href="{{ route('admin_konfirmasi') }}">
                     <i class="fa-solid fa-circle-check"></i>
                     <span>Konfirmasi Admin</span></a>
             </li>

@@ -67,8 +67,8 @@
                 <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item active" href="admintambahuangpangkal">Uang Pangkal</a>
-                        <a class="collapse-item" href="admincarisiswa">SPP Bulanan</a>
+                        <a class="collapse-item active" href="{{ route('admin_search_up') }}">Uang Pangkal</a>
+                        <a class="collapse-item" href="{{ route('search_datasiswa') }}">SPP Bulanan</a>
                     </div>
                 </div>
             </li>

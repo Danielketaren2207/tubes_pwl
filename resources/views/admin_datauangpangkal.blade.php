@@ -79,7 +79,7 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="adminkonfirmasi">
+                <a class="nav-link" href="{{ route('admin_konfirmasi') }}">
                     <i class="fa-solid fa-circle-check"></i>
                     <span>Konfirmasi Admin</span></a>
             </li>
