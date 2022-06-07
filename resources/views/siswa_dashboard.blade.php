@@ -61,7 +61,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         
-                        <a class="collapse-item" href="siswauangpangkal">Uang Pangkal</a>
+                        <a class="collapse-item" href=" {{ route('siswa_up') }} ">Uang Pangkal</a>
                         <a class="collapse-item" href=" {{ route('siswa_spp') }} ">SPP Bulanan</a>
                     </div>
                 </div>

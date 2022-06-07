@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\SPP;
 use App\Models\Month;
@@ -83,7 +84,13 @@ class SPPController extends Controller
      */
     public function show()
     {
+         
+        $data = User::all()->where('id' , Auth::User()->id);
+        $histori_spp = DB::table('spps')->join('month', 'spps.id_bulan', '=', 'month.id_bulan')->where('id_siswa' , Auth::User()->id)->get();
+        $nim = Auth::User()->id;
+        $bulan = Month::all();
 
+        return view('siswa_uangspp', compact('data', 'histori_spp','bulan', 'nim'));
     }
 
     /**

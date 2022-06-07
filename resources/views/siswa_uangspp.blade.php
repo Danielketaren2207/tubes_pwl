@@ -159,27 +159,35 @@
                                         <thead>
                                             <tr>
                                                 <th>Indeks</th>
-                                                <th>Petugas</th>
                                                 <th>Bulan</th>
                                                 <th>Nominal</th>
                                                 <th>Status</th>
-                                                <th>Dibuat</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                              
-                                            @foreach ($data as $d)
+                                            @foreach ($histori_spp as $hs)
                                                 
-                                            @endforeach
+                                            
 
                                             <tr>
-                                                <td>1</td>
-                                                <td>Alan Walker</td>
-                                                <td> {{ $d->month }} </td>
-                                                <td>150.000</td>
-                                                <td>Dicicil</td>
-                                                <td>23 Mei 2022</td>
+                                                <td> {{  $loop->iteration }} </td>
+                                                <td> {{ $hs->nama_bulan }} </td>
+                                                <td> {{$hs->nominal}} </td>
+                                                @if ($hs->nominal == 150000)
+                                                    <td>
+                                                        Lunas
+                                                    </td>
+                                                
+                                                @elseif ($hs->nominal < 150000)
+                                                    <td>
+                                                        Belum Lunas
+                                                    </td>
+                                                
+                                                @endif
                                             </tr>
+
+                                            @endforeach
                                         </tbody>
                                     </table>
         

@@ -158,23 +158,35 @@
                                     <table class="table mt-3">
                                         <thead>
                                             <tr>
-                                                <th>Indeks</th>
-                                                <th>Petugas</th>
-                                                <th>Bulan</th>
+                                                <th>Pembayaran Ke- </th>
                                                 <th>Nominal</th>
-                                                <th>Status</th>
-                                                <th>Dibuat</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Alan Walker</td>
-                                                <td>Mei 2022</td>
-                                                <td>150.000</td>
-                                                <td>Dicicil</td>
-                                                <td>23 Mei 2022</td>
+
+                                            @foreach ($history_up as $hs)
+                                                
+                                           
+
+                                            <tr>                                                
+                                                <td> {{ $hs->pembayaran_ke }} </td>
+                                                <td> {{$hs->nominal}} </td>
+                                                
                                             </tr>
+
+                                            @endforeach
+
+
+                                            <tr>
+                                                <td style="font-weight: 900">  Sisa </td>
+                                                <td style="font-weight: 900" >   {{$sisa}} </td>
+                                            </tr>
+
+                                          
+
+
+
                                         </tbody>
                                     </table>
         
@@ -187,13 +199,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
-            </footer>
+            
             <!-- End of Footer -->
 
         </div>

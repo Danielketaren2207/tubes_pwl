@@ -123,6 +123,7 @@ Route::get('/siswauangspp', [App\Http\Controllers\SPPController::class, 'show'])
 
 
 
+Route::get('/siswauangpangkal', [App\Http\Controllers\UangPangkalController::class, 'show'])-> name('siswa_up');
 
 Route::get('/cetakup/{id}', [App\Http\Controllers\UangPangkalController::class, 'cetak'])->name('cetak_up');
 Route::get('/admincariupsiswa', [App\Http\Controllers\UangPangkalController::class, 'search'])-> name('admin_search_up');
